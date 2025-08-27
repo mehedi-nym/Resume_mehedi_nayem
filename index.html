@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Resumem Of – Mehedi Hasan Nayem</title>
+<style>
+  :root{
+    --bg:#ffffff; --fg:#0f172a; --muted:#64748b; --card:#f8fafc; --accent:#2563eb; --chip:#e2e8f0;
+    --border:#e5e7eb; --shadow:0 10px 30px rgba(2,6,23,.07);
+  }
+  [data-theme="dark"]{
+    --bg:#0b1220; --fg:#e5e7eb; --muted:#9ba3b4; --card:#0f172a; --accent:#60a5fa; --chip:#1f2937;
+    --border:#1f2937; --shadow:0 10px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";background:var(--bg);color:var(--fg);}
+  .wrap{max-width:980px;margin:24px auto;padding:16px}
+  header{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;margin-bottom:18px}
+  h1{margin:0;font-size:clamp(24px,4vw,34px);line-height:1.15}
+  .subtitle{color:var(--muted);margin-top:4px}
+  .actions{display:flex;gap:10px;flex-wrap:wrap}
+  button,.chip{border:1px solid var(--border);background:transparent;color:inherit;border-radius:999px;padding:8px 14px;cursor:pointer}
+  button:hover{border-color:var(--accent)}
+  .chip{display:inline-flex;align-items:center;gap:8px;background:var(--chip)}
+  .grid{display:grid;grid-template-columns:1fr;gap:14px}
+  @media (min-width:880px){.grid{grid-template-columns:2fr 1fr}}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
+  h2{margin:.2rem 0 1rem;font-size:1.1rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  .row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .title{font-weight:600}
+  .meta{color:var(--muted);font-size:.95rem}
+  details{border:1px dashed var(--border);border-radius:14px;padding:12px;margin:.4rem 0;background:transparent}
+  summary{cursor:pointer;font-weight:600;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  .tag{display:inline-block;margin:.2rem .3rem 0 0;padding:.25rem .55rem;border-radius:999px;background:var(--chip);border:1px solid var(--border);font-size:.85rem}
+  .list{display:grid;gap:12px}
+  .search{display:flex;gap:10px;flex-wrap:wrap}
+  input[type="search"]{flex:1;min-width:220px;border:1px solid var(--border);border-radius:12px;padding:10px 12px;background:transparent;color:inherit}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .muted{color:var(--muted)}
+  .footer{margin-top:22px;color:var(--muted);font-size:.9rem}
+  @media print{
+    .actions, .search, .no-print {display:none !important}
+    body{background:white} .card{box-shadow:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap" id="app" data-theme="light">
+  <header>
+    <div>
+      <h1 id="name">Your Name</h1>
+      <div class="subtitle" id="headline">Role • City • Email • Phone • Website</div>
+    </div>
+    <div class="actions no-print">
+      <button id="themeBtn" aria-label="Toggle dark mode">🌙 Dark</button>
+      <button id="printBtn" aria-label="Print resume">🖨️ Print</button>
+    </div>
+  </header>
+
+  <div class="search no-print">
+    <input id="q" type="search" placeholder="Search roles, companies, skills, projects…" />
+    <span class="muted">Type to filter content ↓</span>
+  </div>
+
+  <div class="grid">
+    <section class="card">
+      <h2>Summary</h2>
+      <div id="summary"></div>
+    </section>
+
+    <aside class="card">
+      <h2>Skills</h2>
+      <div id="skills"></div>
+    </aside>
+  </div>
+
+  <section class="card">
+    <h2>Experience</h2>
+    <div id="experience" class="list"></div>
+  </section>
+
+  <section class="card">
+    <h2>Projects</h2>
+    <div id="projects" class="list"></div>
+  </section>
+
+  <section class="card">
+    <h2>Education & Certificates</h2>
+    <div id="education" class="list"></div>
+  </section>
+
+  <div class="footer">
+    <span id="updated"></span>
+  </div>
+</div>
+
+<script>
+/* ========= 1) EDIT YOUR DATA ONLY BELOW ========= */
+const DATA = {
+  basics: {
+    name: "Your Name",
+    headline: "Technical Project Manager • Dhaka, BD • you@email.com • +880-1XXXXXXXXX • yoursite.com",
+    summary: "TPM with 3+ years leading web and API projects end-to-end. Skilled in stakeholder alignment, sprint planning, QA/UAT, and delivery. Comfortable with React, Node, REST, Postman, SQL, and cloud basics. Passionate about clean handoffs and measurable outcomes."
+  },
+  skills: [
+    { name:"Project", items:["Agile/Scrum","Roadmaps","Backlog","Jira","Confluence","Risk mgmt"] },
+    { name:"Tech", items:["JavaScript","React","Node","REST APIs","SQL","Git","CI/CD"] },
+    { name:"Tools", items:["Jira","Linear","Notion","Postman","Figma","Slack","G Suite"] }
+  ],
+  experience: [
+    {
+      role:"Technical Project Manager",
+      company:"DE BESTENN GLOBAL LTD.",
+      location:"Dhaka, BD",
+      period:"Feb 2024 – Present",
+      bullets:[
+        "Coordinated API onboarding (RYOKO) with vendors; reduced integration time by 30%.",
+        "Led sprints across CMS/CRM modules; delivered visa service portal to 100+ resellers.",
+        "Standardized UAT checklists and defect triage; cut reopen rate by 22%."
+      ],
+      tags:["Agile","API","UAT","Stakeholders","Scrum"]
+    },
+    {
+      role:"Jr. IT Executive",
+      company:"Previous Company",
+      location:"Dhaka, BD",
+      period:"2022 – 2024",
+      bullets:[
+        "Owned website content workflows and marketing automations.",
+        "Built eligibility form system (PHP+JS) saving submissions to files/Sheets."
+      ],
+      tags:["Automation","JavaScript","PHP","Google Apps Script"]
+    }
+  ],
+  projects: [
+    {
+      name:"Eligibility Form Platform",
+      link:"https://example.com",
+      period:"2024",
+      bullets:[
+        "Multi-step React UI, scoring logic, export to Google Sheets via Apps Script.",
+        "Admin view with requirements checklist and print-ready reports."
+      ],
+      tags:["React","Apps Script","Sheets API"]
+    },
+    {
+      name:"Reseller Visa Portal (RYOKO)",
+      link:"https://reseller.ryoko.world",
+      period:"2025",
+      bullets:[
+        "CMS/CRM for visa requests, payment and support modules.",
+        "Role-based access, audit logs, SLA metrics dashboard."
+      ],
+      tags:["API","Product Ops","Security"]
+    }
+  ],
+  education: [
+    { title:"B.Sc. in CSE", org:"Your University", period:"2018 – 2022", details:["CGPA 3.7/4.0","Clubs: Programming, Robotics"] },
+    { title:"Cert: Scrum Fundamentals", org:"ScrumStudy", period:"2023", details:["ID: ABC-12345"] }
+  ]
+};
+/* ========= END DATA ========= */
+
+const el = id => document.getElementById(id);
+const app = document.getElementById("app");
+
+function renderBasics(){
+  el("name").textContent = DATA.basics.name;
+  el("headline").textContent = DATA.basics.headline;
+  el("summary").innerHTML = `<p>${escapeHtml(DATA.basics.summary)}</p>`;
+  el("updated").textContent = "Last updated: " + new Date().toLocaleDateString();
+}
+
+function renderSkills(filter=""){
+  const wrap = el("skills");
+  wrap.innerHTML = "";
+  DATA.skills.forEach(group=>{
+    const box = document.createElement("div");
+    box.style.marginBottom = "8px";
+    const chips = group.items
+      .filter(s=>s.toLowerCase().includes(filter))
+      .map(s=>`<span class="tag">${escapeHtml(s)}</span>`)
+      .join("");
+    if(!chips) return;
+    box.innerHTML = `<div class="row"><div class="title">${escapeHtml(group.name)}</div></div>${chips}`;
+    wrap.appendChild(box);
+  });
+}
+
+function renderList(containerId, items, filter=""){
+  const c = el(containerId);
+  c.innerHTML = "";
+  items.forEach(item=>{
+    const hay = (JSON.stringify(item).toLowerCase());
+    if(filter && !hay.includes(filter)) return;
+
+    if(containerId==="experience"){
+      const d = document.createElement("div");
+      d.innerHTML = `
+        <div class="row">
+          <div class="title">${escapeHtml(item.role)} — ${escapeHtml(item.company)}</div>
+          <div class="meta">${escapeHtml(item.location)} • ${escapeHtml(item.period)}</div>
+        </div>
+        <details open>
+          <summary>Highlights</summary>
+          <ul>${item.bullets.map(b=>`<li>${escapeHtml(b)}</li>`).join("")}</ul>
+        </details>
+        <div>${item.tags.map(t=>`<span class="tag">${escapeHtml(t)}</span>`).join("")}</div>
+      `;
+      c.appendChild(d);
+    }
+
+    if(containerId==="projects"){
+      const d = document.createElement("div");
+      d.innerHTML = `
+        <div class="row">
+          <div class="title"><a href="${escapeAttr(item.link)}" target="_blank" rel="noopener">${escapeHtml(item.name)}</a></div>
+          <div class="meta">${escapeHtml(item.period)}</div>
+        </div>
+        <ul>${item.bullets.map(b=>`<li>${escapeHtml(b)}</li>`).join("")}</ul>
+        <div>${item.tags.map(t=>`<span class="tag">${escapeHtml(t)}</span>`).join("")}</div>
+      `;
+      c.appendChild(d);
+    }
+
+    if(containerId==="education"){
+      const d = document.createElement("div");
+      d.innerHTML = `
+        <div class="row">
+          <div class="title">${escapeHtml(item.title)}</div>
+          <div class="meta">${escapeHtml(item.period)}</div>
+        </div>
+        <div class="muted">${escapeHtml(item.org)}</div>
+        ${item.details?.length ? `<ul>${item.details.map(x=>`<li>${escapeHtml(x)}</li>`).join("")}</ul>` : ""}
+      `;
+      c.appendChild(d);
+    }
+  });
+}
+
+function escapeHtml(s){return String(s)
+  .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
+  .replaceAll('"',"&quot;").replaceAll("'","&#039;");}
+function escapeAttr(s){return escapeHtml(s).replaceAll(" ","%20");}
+
+// Search & theme handlers
+(function init(){
+  renderBasics();
+  renderSkills();
+  renderList("experience", DATA.experience);
+  renderList("projects", DATA.projects);
+  renderList("education", DATA.education);
+
+  const q = el("q");
+  q.addEventListener("input", ()=>{
+    const f = q.value.trim().toLowerCase();
+    renderSkills(f);
+    renderList("experience", DATA.experience, f);
+    renderList("projects", DATA.projects, f);
+    renderList("education", DATA.education, f);
+  });
+
+  const themeBtn = el("themeBtn");
+  const key = "resume-theme";
+  const cached = localStorage.getItem(key);
+  if(cached){ app.dataset.theme = cached; themeBtn.textContent = cached==="dark" ? "☀️ Light" : "🌙 Dark"; }
+  themeBtn.addEventListener("click", ()=>{
+    const next = app.dataset.theme === "dark" ? "light" : "dark";
+    app.dataset.theme = next;
+    localStorage.setItem(key,next);
+    themeBtn.textContent = next==="dark" ? "☀️ Light" : "🌙 Dark";
+  });
+
+  el("printBtn").addEventListener("click", ()=> window.print());
+})();
+</script>
+</body>
+</html>
