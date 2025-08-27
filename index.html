@@ -281,7 +281,7 @@ const app = document.getElementById("app");
 
 function renderBasics(){
   el("name").textContent = DATA.basics.name;
-  el("headline").textContent = DATA.basics.headline;
+  el("headline").innerHTML = DATA.basics.headline; // allows links in headline
   el("summary").innerHTML = `<p>${escapeHtml(DATA.basics.summary)}</p>`;
   el("updated").textContent = "Last updated: " + new Date().toLocaleDateString();
 }
@@ -353,6 +353,31 @@ function renderList(containerId, items, filter=""){
   });
 }
 
+function renderCertifications(){
+  const c = el("certifications");
+  c.innerHTML = "";
+  DATA.certifications.forEach(cert=>{
+    const li = document.createElement("li");
+    li.textContent = `${cert.title} — ${cert.org}`;
+    c.appendChild(li);
+  });
+}
+
+function renderVolunteer(){
+  const c = el("volunteer");
+  c.innerHTML = "";
+  DATA.volunteer.forEach(v=>{
+    const li = document.createElement("li");
+    li.textContent = v;
+    c.appendChild(li);
+  });
+}
+
+function renderHobbies(){
+  const c = el("hobbies");
+  c.innerHTML = DATA.hobbies.map(h=>`<span class="tag">${escapeHtml(h)}</span>`).join(" ");
+}
+
 function escapeHtml(s){return String(s)
   .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
   .replaceAll('"',"&quot;").replaceAll("'","&#039;");}
@@ -365,6 +390,9 @@ function escapeAttr(s){return escapeHtml(s).replaceAll(" ","%20");}
   renderList("experience", DATA.experience);
   renderList("projects", DATA.projects);
   renderList("education", DATA.education);
+  renderCertifications();
+  renderVolunteer();
+  renderHobbies();
 
   const q = el("q");
   q.addEventListener("input", ()=>{
@@ -373,6 +401,7 @@ function escapeAttr(s){return escapeHtml(s).replaceAll(" ","%20");}
     renderList("experience", DATA.experience, f);
     renderList("projects", DATA.projects, f);
     renderList("education", DATA.education, f);
+    // Certifications, Volunteer, Hobbies are simple — no filter
   });
 
   const themeBtn = el("themeBtn");
@@ -388,6 +417,7 @@ function escapeAttr(s){return escapeHtml(s).replaceAll(" ","%20");}
 
   el("printBtn").addEventListener("click", ()=> window.print());
 })();
+
 </script>
 </body>
 </html>
