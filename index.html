@@ -67,6 +67,42 @@
   .subtitle a { color: var(--accent); }
   .subtitle a:hover { text-decoration: underline; }
 
+  /* ADD */
+  /* Make sure all text inside cards follows theme colors */
+.card, 
+.card p, 
+.card li, 
+.card .title, 
+.card .meta, 
+.card details, 
+.card summary {
+  color: var(--fg);
+}
+
+/* Muted text (like meta lines, subtitles, small notes) */
+.card .meta,
+.subtitle,
+.muted {
+  color: var(--muted);
+}
+
+/* Lists */
+ul, li {
+  color: var(--fg);
+}
+
+/* Details (expand/collapse sections) */
+details, details p, details li {
+  color: var(--fg);
+}
+
+/* Override browser default summary color */
+summary {
+  color: var(--fg);
+}
+
+
+
   /* Buttons */
   .actions {
     display: flex;
