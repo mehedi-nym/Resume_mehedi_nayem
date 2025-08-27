@@ -52,7 +52,7 @@
   <header>
     <div>
       <h1 id="name">Your Name</h1>
-      <div class="subtitle" id="headline">Role • City • Email • Phone • Website</div>
+      <div class="subtitle" id="headline">Role • City • Email • Phone </div>
     </div>
     <div class="actions no-print">
       <button id="themeBtn" aria-label="Toggle dark mode">🌙 Dark</button>
@@ -101,67 +101,158 @@
 /* ========= 1) EDIT YOUR DATA ONLY BELOW ========= */
 const DATA = {
   basics: {
-    name: "Your Name",
-    headline: "Technical Project Manager • Dhaka, BD • you@email.com • +880-1XXXXXXXXX • yoursite.com",
-    summary: "TPM with 3+ years leading web and API projects end-to-end. Skilled in stakeholder alignment, sprint planning, QA/UAT, and delivery. Comfortable with React, Node, REST, Postman, SQL, and cloud basics. Passionate about clean handoffs and measurable outcomes."
+    name: "MD. MEHEDI HASAN NAYEM",
+    headline: "API Coordinator (Technical Project Coordinator) • Dhaka, Bangladesh • mnym71@gmail.com • +8801844944411 • github.com/mehedi-nym • linkedin.com/in/mehedi-nym",
+    summary: "Desire to take up challenges and build a responsible career in the IT sector in a reputed organization and grow with it through enthusiasm and innovation. Effective in maintaining good communication with others, thirsty for challenges, and always striving for success."
   },
   skills: [
-    { name:"Project", items:["Agile/Scrum","Roadmaps","Backlog","Jira","Confluence","Risk mgmt"] },
-    { name:"Tech", items:["JavaScript","React","Node","REST APIs","SQL","Git","CI/CD"] },
-    { name:"Tools", items:["Jira","Linear","Notion","Postman","Figma","Slack","G Suite"] }
+    { name:"Core", items:[
+      "Project Management","API Coordination","IT Support","Operational Support","Software Management",
+      "CRM Software Proficiency","Software Testing","Team Collaboration"
+    ]},
+    { name:"Development", items:[
+      "Web Design & Development","WordPress Development","JavaScript","React.js","UI/UX"
+    ]},
+    { name:"Creative", items:[
+      "Graphics Design","Photo Editing","Video Editing"
+    ]}
   ],
   experience: [
     {
-      role:"Technical Project Manager",
-      company:"DE BESTENN GLOBAL LTD.",
-      location:"Dhaka, BD",
-      period:"Feb 2024 – Present",
+      role:"API Coordinator (Technical Project Coordinator)",
+      company:"Ryoko Ltd.",
+      location:"Banani, Dhaka",
+      period:"Dec 2024 – Current",
       bullets:[
-        "Coordinated API onboarding (RYOKO) with vendors; reduced integration time by 30%.",
-        "Led sprints across CMS/CRM modules; delivered visa service portal to 100+ resellers.",
-        "Standardized UAT checklists and defect triage; cut reopen rate by 22%."
+        "Managed planning to execution of Bangladesh’s first AI-powered OTA (reseller.ryoko.world).",
+        "Coordinated cross-functional teams to build a 360° travel solution platform.",
+        "Overcame technical and organizational challenges during project development."
       ],
-      tags:["Agile","API","UAT","Stakeholders","Scrum"]
+      tags:["OTA","API","Travel Tech","Project Management"]
     },
     {
-      role:"Jr. IT Executive",
-      company:"Previous Company",
-      location:"Dhaka, BD",
-      period:"2022 – 2024",
+      role:"IT Executive",
+      company:"De Bestenn Global Ltd.",
+      location:"Dhaka, Bangladesh",
+      period:"Feb 2024 – Current",
       bullets:[
-        "Owned website content workflows and marketing automations.",
-        "Built eligibility form system (PHP+JS) saving submissions to files/Sheets."
+        "Managed IT infrastructure for a group of companies, ensuring seamless office operations.",
+        "Delivered internal tools for data storage and eligibility test systems."
       ],
-      tags:["Automation","JavaScript","PHP","Google Apps Script"]
+      tags:["IT Infrastructure","Internal Software","Ops Support"]
+    },
+    {
+      role:"Operation & Data Entry",
+      company:"Steadfast Courier Ltd.",
+      location:"Dhaka, Bangladesh",
+      period:"Aug 2023 – Feb 2024",
+      bullets:[
+        "Handled courier operations, data entry, and IT support.",
+        "Maintained smooth flow of information between teams."
+      ],
+      tags:["Operations","Data Entry","Support"]
     }
   ],
   projects: [
     {
-      name:"Eligibility Form Platform",
-      link:"https://example.com",
-      period:"2024",
+      name:"Vehicle Detection and Speed Tracking",
+      link:"#",
+      period:"Final Year Project",
       bullets:[
-        "Multi-step React UI, scoring logic, export to Google Sheets via Apps Script.",
-        "Admin view with requirements checklist and print-ready reports."
+        "Built using Python, OpenCV, and MongoDB.",
+        "Detected moving vehicles, identified type/color, measured speed, and stored real-time data."
       ],
-      tags:["React","Apps Script","Sheets API"]
+      tags:["Python","OpenCV","MongoDB"]
     },
     {
-      name:"Reseller Visa Portal (RYOKO)",
-      link:"https://reseller.ryoko.world",
-      period:"2025",
+      name:"Smart Attendance System",
+      link:"#",
+      period:"Academic Project",
       bullets:[
-        "CMS/CRM for visa requests, payment and support modules.",
-        "Role-based access, audit logs, SLA metrics dashboard."
+        "Laptop/mobile-based system to record and track student attendance by subject.",
+        "Stored attendance data in a MySQL database."
       ],
-      tags:["API","Product Ops","Security"]
+      tags:["MySQL","System Design"]
+    },
+    {
+      name:"Full-Stack E-commerce Website",
+      link:"#",
+      period:"Academic Project",
+      bullets:[
+        "Developed with MERN stack.",
+        "Features: product filtering, variant selection, cart, order management, COD/online payment."
+      ],
+      tags:["MERN","E-commerce"]
+    },
+    {
+      name:"Dynamic Website & Internal Software",
+      link:"#",
+      period:"2024",
+      bullets:[
+        "Built company profile websites with WordPress and JavaScript.",
+        "Delivered in-house apps (Data Store, Eligibility Test system) to streamline operations."
+      ],
+      tags:["WordPress","JavaScript","Business Software"]
+    },
+    {
+      name:"Resume Builder App",
+      link:"#",
+      period:"2024",
+      bullets:[
+        "Interactive app with dynamic data input and export options."
+      ],
+      tags:["JavaScript","App Dev"]
+    },
+    {
+      name:"Fun Utility Apps",
+      link:"#",
+      period:"Side Projects",
+      bullets:[
+        "Created Budget Calculator, Shopping List Creator, Weather Update App."
+      ],
+      tags:["JavaScript","Problem-Solving"]
     }
   ],
   education: [
-    { title:"B.Sc. in CSE", org:"Your University", period:"2018 – 2022", details:["CGPA 3.7/4.0","Clubs: Programming, Robotics"] },
-    { title:"Cert: Scrum Fundamentals", org:"ScrumStudy", period:"2023", details:["ID: ABC-12345"] }
-  ]
+    {
+      title:"Master’s in Information Technology (Ongoing)",
+      org:"IIT, University of Dhaka",
+      period:"2026",
+      details:["Currently studying"]
+    },
+    {
+      title:"BSc in Computer Science & Engineering",
+      org:"Daffodil Institute of IT, Dhaka",
+      period:"2021",
+      details:["CGPA 3.04 out of 4"]
+    },
+    {
+      title:"Higher Secondary Certificate (Science)",
+      org:"Tejgaon College, Dhaka",
+      period:"2017",
+      details:["CGPA 4.08 out of 5"]
+    },
+    {
+      title:"Secondary School Certificate (Science)",
+      org:"West Dhanmondi Yousuf High School",
+      period:"2015",
+      details:["CGPA 4.78 out of 5"]
+    }
+  ],
+  certifications: [
+    { title:"IELTS Program", org:"Wings Learning Academy" },
+    { title:"Cyber Hygiene Training", org:"APAC Cyber Security Fund" },
+    { title:"SQA Career Launchpad", org:"Ostad Ltd." },
+    { title:"Graphic Design", org:"Samsal Bangladesh" }
+  ],
+  volunteer: [
+    "UNICEF World Children’s Day 2018 – Event Management",
+    "Prothom Alo – Biggan Chinta, Promotion & School Campaign",
+    "OPPO Bangladesh – Product Promotion Campaign"
+  ],
+  hobbies: ["Photography","Travelling"]
 };
+
 /* ========= END DATA ========= */
 
 const el = id => document.getElementById(id);
