@@ -16,17 +16,16 @@
     --shadow: 0 6px 20px rgba(0,0,0,.06);
   }
   [data-theme="dark"] {
-    --bg: #0b1220;
-    --fg: #e5e7eb;
-    --muted: #9ba3b4;
-    --card: #111827;
-    --accent: #60a5fa;
-    --chip: #1f2937;
-    --border: #1f2937;
-    --shadow: 0 8px 25px rgba(0,0,0,.45);
-  }
+  --bg: #0b1220;
+  --fg: #f1f5f9;       /* brighter text in dark */
+  --muted: #9ba3b4;
+  --card: #111827;
+  --accent: #60a5fa;
+  --chip: #1f2937;
+  --border: #374151;
+  --shadow: 0 8px 25px rgba(0,0,0,.6);
+}
 
-  * { box-sizing: border-box; }
   body {
     margin: 0;
     font: 16px/1.65 system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial;
@@ -50,6 +49,9 @@
     gap: 16px;
     margin-bottom: 28px;
   }
+  h1, h2, h3, h4, h5, h6 {
+  color: var(--fg);   /* headings follow theme */
+}
   h1 {
     margin: 0;
     font-size: clamp(26px, 4vw, 36px);
@@ -72,15 +74,15 @@
     flex-wrap: wrap;
   }
   button {
-    border: 1px solid var(--border);
-    background: var(--chip);
-    color: inherit;
-    border-radius: 999px;
-    padding: 8px 14px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: all .2s;
-  }
+  border: 1px solid var(--border);
+  background: var(--chip);
+  color: var(--fg);   /* button text follows theme */
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all .2s;
+}
   button:hover {
     border-color: var(--accent);
     background: var(--accent);
@@ -143,15 +145,15 @@
 
   /* Tags / Chips */
   .tag {
-    display: inline-block;
-    margin: .2rem .3rem 0 0;
-    padding: .3rem .7rem;
-    border-radius: 999px;
-    background: var(--chip);
-    border: 1px solid var(--border);
-    font-size: .83rem;
-    white-space: nowrap;
-  }
+  display: inline-block;
+  margin: .2rem .3rem 0 0;
+  padding: .3rem .7rem;
+  border-radius: 999px;
+  background: var(--chip);
+  border: 1px solid var(--border);
+  font-size: .83rem;
+  color: var(--fg);  /* tag text follows theme */
+}
 
   /* Lists */
   .list { display: grid; gap: 14px; }
