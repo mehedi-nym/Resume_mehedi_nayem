@@ -193,7 +193,7 @@ ul, li { color: var(--fg); }
     <div class="actions no-print">
   <button id="themeBtn" aria-label="Toggle dark mode">🌙 Dark</button>
   <a href="https://drive.google.com/uc?export=download&id=11Hkukq-rq9R4JcgrGvsDeJPPc6IcH2_J" download="Mehedi_Hasan_Nayem_Resume.pdf">
-    <button id="printBtn" aria-label="Download resume">📄 Download Resume</button>
+    <button aria-label="Download resume">📄 Download Resume</button>
   </a>
 </div>
 
@@ -548,8 +548,6 @@ function escapeAttr(s){return escapeHtml(s).replaceAll(" ","%20");}
     localStorage.setItem(key,next);
     themeBtn.textContent = next==="dark" ? "☀️ Light" : "🌙 Dark";
   });
-
-  el("printBtn").addEventListener("click", ()=> window.print());
 })();
 
 </script>
