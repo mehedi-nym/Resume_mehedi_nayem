@@ -428,7 +428,7 @@ const DATA = {
 /* ========= END DATA ========= */
 
 const el = id => document.getElementById(id);
-const app = document.getElementById("app");
+const app = document.documentElement;
 
 function renderBasics(){
   el("name").textContent = DATA.basics.name;
